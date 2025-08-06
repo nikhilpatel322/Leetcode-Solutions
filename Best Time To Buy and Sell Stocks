@@ -1,0 +1,19 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        int n=prices.length;
+        int MaxProfit=0;
+        int BuyPrice=prices[0];
+
+        for(int i=1;i<n;i++){
+            int CurrProfit=prices[i]-BuyPrice;
+            if(CurrProfit>MaxProfit){
+                MaxProfit=CurrProfit;
+            }
+            if(prices[i]<BuyPrice){
+                BuyPrice=prices[i];
+            }
+        }
+        return MaxProfit;
+        
+    }
+}
