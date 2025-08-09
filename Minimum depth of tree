@@ -1,0 +1,14 @@
+class Solution {
+    public int minDepth(TreeNode root) {
+        if (root == null) return 0;
+
+        int leftSubtree = minDepth(root.left);
+        int rightSubtree = minDepth(root.right);
+
+        if (leftSubtree == 0) return 1 + rightSubtree;
+        if (rightSubtree == 0) return 1 + leftSubtree;
+
+        ///// left subtree and right subtree both exist
+        return 1 + Math.min(leftSubtree, rightSubtree);
+    }
+}
