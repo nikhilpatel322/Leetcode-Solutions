@@ -1,0 +1,17 @@
+class Solution {
+    public boolean isSymmetric(TreeNode root) {
+        if(root==null){
+            return true;
+        }
+        return check(root.left,root.right);    
+    }
+       public boolean check(TreeNode left_node, TreeNode right_node){
+        if (left_node==null && right_node==null) return true;
+        if(left_node==null || right_node==null) return false;
+        if(left_node.val!=right_node.val) return false;
+
+        return check(left_node.left,right_node.right)&& check(left_node.right,right_node.left);
+
+       }
+       
+}
